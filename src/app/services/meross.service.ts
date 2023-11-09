@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { GarageService } from '../interfaces/garage-service';
 import { webSocket } from 'rxjs/webSocket';
+import { Observable, map } from 'rxjs';
+import { GarageState } from '../models/garage-state';
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +16,7 @@ export class MerossService implements GarageService {
     console.log('close called');
   };
 
-  status$ = webSocket('ws://localhost:3000/web');
+  state$: Observable<boolean> = webSocket<GarageState>(
+    'ws://localhost:3000/garage/state'
+  ).pipe(map((state: GarageState) => !!state.open));
 }

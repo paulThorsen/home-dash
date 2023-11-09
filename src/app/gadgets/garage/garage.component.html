@@ -1,3 +1,5 @@
+@if ((garageService.state$ | async) !== null) {
+{{ (garageService.state$ | async) ? "Open" : "Closed" }}
+} @else {loading}
 <button (click)="garageService.open()">Open</button>
 <button (click)="garageService.close()">Close</button>
-State: {{ garageService.status$ | async }}
