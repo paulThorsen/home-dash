@@ -1,2 +1,3 @@
-<button>Open</button>
-<button>Close</button>
+<button (click)="garageService.open()">Open</button>
+<button (click)="garageService.close()">Close</button>
+State: {{ garageService.status$ | async }}
