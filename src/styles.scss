@@ -21,3 +21,15 @@ video {
   display: block;
   max-width: 100%;
 }
+
+body {
+  background: radial-gradient(at right bottom, #807c7962, #e4e1de99);
+}
+
+button {
+  background: transparent;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}

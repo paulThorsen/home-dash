@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { GarageService } from '../interfaces/garage-service';
 import { webSocket } from 'rxjs/webSocket';
-import { Observable, map, retry, shareReplay } from 'rxjs';
+import { Observable, catchError, map, of, retry, shareReplay } from 'rxjs';
 import { GarageState } from '../models/garage-state';
 
 @Injectable({

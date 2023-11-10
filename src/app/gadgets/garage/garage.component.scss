@@ -1,0 +1,36 @@
+button,
+.button-wrapper,
+.button-wrapper-2 {
+  border-radius: 3rem;
+}
+
+.button-wrapper-2 {
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.button-wrapper {
+  box-shadow: -1px -2px 10px rgba(255, 255, 255, 0.6);
+}
+
+button {
+  padding: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(243, 240, 237, 1) 0%,
+    rgba(215, 211, 207, 1) 100%
+  );
+  box-shadow: 3px 8px 14px rgba(0, 0, 0, 0.2),
+    inset -1px -4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18rem;
+  width: 18rem;
+}
+
+svg {
+  filter: drop-shadow(0 0 2px rgb(53, 142, 232));
+}
+path {
+  fill: rgb(53, 142, 232);
+}
