@@ -14,5 +14,4 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class GarageComponent {
   protected readonly garageService: GarageService = inject(MerossService);
   protected isOpen = toSignal(this.garageService.state$);
-  protected handleClick = (isOpen: boolean) => {};
 }
