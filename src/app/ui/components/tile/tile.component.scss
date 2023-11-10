@@ -1,3 +1,5 @@
+@use "../../../../scss/vars";
+
 :host,
 .container,
 .container-2 {
@@ -24,7 +26,7 @@
   background: #ffffff00;
   background: radial-gradient(at right bottom, #ffffffa7, #d7d3cf) padding-box,
     radial-gradient(at right bottom, #d7d3cf, #ffffff32) border-box;
-  border: 4px solid transparent;
+  border: 2px solid transparent;
 }
 
 .container-2 {
