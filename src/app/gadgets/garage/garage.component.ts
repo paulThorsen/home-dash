@@ -15,6 +15,5 @@ import { TileComponent } from '../../ui/components/tile/tile.component';
 export class GarageComponent {
   protected readonly garageService: GarageService = inject(MerossService);
 
-  protected isOpen = signal(false);
-  // protected isOpen = toSignal(this.garageService.state$);
+  protected isOpen = toSignal(this.garageService.state$);
 }

@@ -1,5 +1,5 @@
 <app-tile [ngClass]="{ open: isOpen() }">
-  <button (click)="isOpen() ? isOpen.set(false) : isOpen.set(true)">
+  <button (click)="isOpen() ? garageService.close() : garageService.open()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="8rem"
