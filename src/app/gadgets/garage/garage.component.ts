@@ -1,9 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MerossService } from '../../services/meross.service';
 import { GarageService } from '../../interfaces/garage-service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TileComponent } from '../../ui/components/tile/tile.component';
+import { Subject, merge, tap } from 'rxjs';
 
 @Component({
   selector: 'app-garage',
@@ -13,7 +14,32 @@ import { TileComponent } from '../../ui/components/tile/tile.component';
   styleUrl: './garage.component.scss',
 })
 export class GarageComponent {
-  protected readonly garageService: GarageService = inject(MerossService);
+  private readonly garageService: GarageService = inject(MerossService);
+  /**
+   * Represents the optimistic closing of the garage door.
+   */
+  private readonly optimisticIsOpenState$ = new Subject<boolean>();
 
-  protected isOpen = toSignal(this.garageService.state$);
+  protected close = () => {
+    this.garageService
+      .close()
+      // We're only optimistic if the response is successful.
+      .pipe(tap(() => this.optimisticIsOpenState$.next(false)))
+      .subscribe();
+  };
+
+  protected open = () => {
+    this.garageService
+      .open()
+      // We're only optimistic if the response is successful.
+      .pipe(tap(() => this.optimisticIsOpenState$.next(true)))
+      .subscribe();
+  };
+
+  /**
+   * Signal that merges the current garage state with the optimistic state.
+   */
+  protected isOpen = toSignal(
+    merge(this.garageService.state$, this.optimisticIsOpenState$.asObservable())
+  );
 }

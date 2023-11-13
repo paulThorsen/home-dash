@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { GarageService } from '../interfaces/garage-service';
 import { webSocket } from 'rxjs/webSocket';
-import { Observable, catchError, map, of, retry, shareReplay } from 'rxjs';
+import { Observable, map, retry, shareReplay } from 'rxjs';
 import { GarageState } from '../models/garage-state';
 
 @Injectable({
@@ -13,21 +13,18 @@ export class MerossService implements GarageService {
   /**
    * Open the garage door.
    */
-  open = () => {
+  open = () =>
     this.http
-      .post('http://localhost:3000/garage/open', {})
-      .pipe(retry({ delay: 1000, count: 1, resetOnSuccess: true }))
-      .subscribe();
-  };
+      .post<unknown>('http://localhost:3000/garage/open', {})
+      .pipe(retry({ delay: 1000, count: 1, resetOnSuccess: true }));
+
   /**
    * Close the garage door.
    */
-  close = () => {
+  close = () =>
     this.http
-      .post('http://localhost:3000/garage/close', {})
-      .pipe(retry({ delay: 1000, count: 1 }))
-      .subscribe();
-  };
+      .post<unknown>('http://localhost:3000/garage/close', {})
+      .pipe(retry({ delay: 1000, count: 1, resetOnSuccess: true }));
   /**
    * Current state of the garage. Open/closed represented as a boolean.
    */
