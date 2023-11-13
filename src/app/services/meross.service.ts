@@ -31,7 +31,7 @@ export class MerossService implements GarageService {
   state$: Observable<boolean> = webSocket<GarageState>(
     'ws://localhost:3000/garage/state'
   ).pipe(
-    map((state: GarageState) => !!state.open),
-    shareReplay()
+    retry({ delay: 1000 }),
+    map((state: GarageState) => !!state.open)
   );
 }
