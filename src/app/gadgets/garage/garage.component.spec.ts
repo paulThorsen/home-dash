@@ -8,16 +8,15 @@ describe('GarageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GarageComponent]
-    })
-    .compileComponents();
-    
+      imports: [GarageComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(GarageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('creates', () => {
     expect(component).toBeTruthy();
   });
 });
