@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MerossService } from '../../services/meross.service';
-import { GarageService } from '../../interfaces/garage-service';
+import { MerossService } from '../../core/services/meross.service';
+import { GarageService } from '../../core/interfaces/garage-service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TileComponent } from '../../ui/components/tile/tile.component';
 import { Subject, merge, tap } from 'rxjs';

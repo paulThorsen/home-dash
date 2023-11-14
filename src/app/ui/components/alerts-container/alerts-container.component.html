@@ -1,0 +1,5 @@
+<div id="alerts-wrapper">
+  @for (alert of alertService.alerts() | slice: 0:3; track alert) {
+  <app-alert [alert]="alert" />
+  }
+</div>

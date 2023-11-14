@@ -1,0 +1,35 @@
+:host {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  z-index: 1;
+}
+
+#alerts-wrapper {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  position: relative;
+  flex-direction: column;
+}
+
+app-alert:nth-of-type(1) {
+  z-index: 2;
+  width: 100%;
+}
+
+app-alert:nth-of-type(2) {
+  z-index: 1;
+  width: 98%;
+  position: absolute;
+  top: 0.4rem;
+}
+
+app-alert:nth-of-type(3) {
+  width: 96%;
+  position: absolute;
+  top: 0.8rem;
+}
