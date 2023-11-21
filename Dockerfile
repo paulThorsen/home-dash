@@ -5,7 +5,7 @@ RUN npm i
 RUN npm run build
 
 FROM nginx:stable
-COPY --from=builder dist/home-dash/browser /usr/share/nginx/html
+COPY --from=builder dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 CMD ["/bin/sh",  "-c", "nginx -g 'daemon off;'"]
 
