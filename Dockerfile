@@ -1,9 +1,7 @@
 FROM node:18.13.0 as builder
 WORKDIR /app
-COPY ["package.json", "package-lock.json", "/app/"]
-RUN npm ci --omit=dev --ignore-scripts
-RUN npm i -g @angular/cli
 COPY . /app
+RUN npm i
 RUN npm run build
 
 FROM nginx:stable
