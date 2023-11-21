@@ -1,4 +1,4 @@
-FROM node:18.13.0 as builder
+FROM --platform=linux/amd64 node:18.13.0 as builder
 WORKDIR /app
 COPY . /app
 RUN npm i
