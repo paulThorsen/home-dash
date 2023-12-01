@@ -8,6 +8,7 @@ import {
   of,
   retry,
   shareReplay,
+  tap,
   throwError,
 } from 'rxjs';
 import { GarageState } from '../models/garage-state';
@@ -29,7 +30,8 @@ export class MerossService implements GarageService {
       catchError((e) => {
         this.alerts.addAlert('GARAGE_OPEN_FAILED');
         throw e;
-      })
+      }),
+      tap(() => this.alerts.removeAlert('GARAGE_OPEN_FAILED'))
     );
 
   /**
@@ -41,7 +43,8 @@ export class MerossService implements GarageService {
       catchError((e) => {
         this.alerts.addAlert('GARAGE_CLOSE_FAILED');
         throw e;
-      })
+      }),
+      tap(() => this.alerts.removeAlert('GARAGE_CLOSE_FAILED'))
     );
   /**
    * Current state of the garage. Open/closed represented as a boolean.
@@ -55,6 +58,7 @@ export class MerossService implements GarageService {
       throw 'GARAGE_WEBSOCKET_CONNECTION_FAILED';
     }),
     retry({ delay: 1000 }),
-    map((state: GarageState) => !!state.open)
+    map((state: GarageState) => !!state.open),
+    tap(() => this.alerts.removeAlert('GARAGE_WEBSOCKET_CONNECTION_FAILED'))
   );
 }
