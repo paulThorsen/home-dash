@@ -5,4 +5,8 @@ export const ERRORS: Record<AlertType, string> = {
     'Error connecting to garage. Attempting to reconnect...',
   GARAGE_CLOSE_FAILED: 'Error closing garage. Please try again.',
   GARAGE_OPEN_FAILED: 'Error opening garage. Please try again.',
+  TV_OFF_FAILED: 'Error turning off TV. Please try again.',
+  TV_ON_FAILED: 'Error turning on TV. Please try again.',
+  TV_WEBSOCKET_CONNECTION_FAILED:
+    'Error connecting to TV. Attempting to reconnect...',
 } as const;

@@ -1,7 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MerossService } from '../../core/services/meross.service';
-import { GarageService } from '../../core/interfaces/garage-service';
+import { GarageService } from '../../core/services/garage.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TileComponent } from '../../ui/components/tile/tile.component';
 import { Subject, merge, tap } from 'rxjs';
@@ -14,7 +13,7 @@ import { Subject, merge, tap } from 'rxjs';
   styleUrl: './garage.component.scss',
 })
 export class GarageComponent {
-  private readonly garageService: GarageService = inject(MerossService);
+  private readonly garageService = inject(GarageService);
   /**
    * Represents the optimistic closing of the garage door.
    */
