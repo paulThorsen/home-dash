@@ -1,0 +1,40 @@
+$icon-color-active: rgb(53, 142, 232);
+$icon-color-inactive: rgb(105, 130, 156);
+
+:host {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg,
+path {
+  transition: all 1s;
+}
+
+svg {
+  filter: drop-shadow(0 0 8px transparent);
+}
+
+path {
+  fill: $icon-color-inactive;
+}
+
+button {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+app-tile {
+  position: absolute;
+  height: 18rem;
+  width: 18rem;
+  backdrop-filter: blur(10px);
+}

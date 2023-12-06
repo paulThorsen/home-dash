@@ -1,0 +1,9 @@
+@import "../scss/tile-icon";
+
+svg.on {
+  filter: drop-shadow(0 0 8px $icon-color-active);
+}
+
+path.on {
+  fill: $icon-color-active;
+}
