@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TileComponent } from '../tile/tile.component';
 import { GarageComponent } from '../../../gadgets/garage/garage.component';
 import { TVComponent } from '../../../gadgets/tv/tv.component';
-import { ForecastComponent } from '../../../forecast/forecast.component';
+import { WeatherComponent } from '../../../weather/weather.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,7 @@ import { ForecastComponent } from '../../../forecast/forecast.component';
     TileComponent,
     GarageComponent,
     TVComponent,
-    ForecastComponent,
+    WeatherComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',

@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+  font-family: "roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Roboto-Regular.ttf");
+}
+
 *,
 *::before,
 *::after {
@@ -24,6 +38,7 @@ video {
 
 body {
   background: radial-gradient(at right bottom, #807c7962, #e4e1de99);
+  font-family: "roboto";
 }
 
 button {
