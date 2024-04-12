@@ -10,4 +10,5 @@ export const ERRORS: Record<AlertType, string> = {
   TV_WEBSOCKET_CONNECTION_FAILED:
     'Error connecting to TV. Attempting to reconnect...',
   GET_WEATHER_FAILED: 'Failed to get weather. Retrying...',
+  TV_CHANGE_INPUT_FAILED: 'Failed to change TV input. Retrying...',
 } as const;

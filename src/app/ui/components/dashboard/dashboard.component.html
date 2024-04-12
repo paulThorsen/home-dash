@@ -1,3 +1,18 @@
-<app-tile><app-tv></app-tv></app-tile>
+<app-tile>
+  <app-tv></app-tv>
+  <button
+    class="alt-button"
+    style="padding: 2.5rem 0"
+    (click)="tvService.changeInput('hdmi1').subscribe()"
+  >
+    <img src="assets/icons/apple-tv.svg" alt="" />
+  </button>
+  <button
+    class="alt-button"
+    (click)="tvService.changeInput('hdmi2').subscribe()"
+  >
+    <img src="assets/icons/nintendo-switch.svg" alt="" />
+  </button>
+</app-tile>
 <app-tile><app-garage /></app-tile>
 <app-tile><app-forecast /></app-tile>

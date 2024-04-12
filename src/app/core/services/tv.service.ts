@@ -43,6 +43,22 @@ export class TVService {
       tap(() => this.alerts.removeAlert(alert))
     );
   };
+
+  /**
+   * Change TV input.
+   */
+  changeInput = (input: 'hdmi1' | 'hdmi2') => {
+    const alert: AlertType = 'TV_CHANGE_INPUT_FAILED';
+    return this.http.post<unknown>(`${this.apiBaseURI}/${input}`, {}).pipe(
+      retry({ delay: 1000, count: 1, resetOnSuccess: true }),
+      catchError((e) => {
+        this.alerts.addAlert(alert);
+        throw e;
+      }),
+      tap(() => this.alerts.removeAlert(alert))
+    );
+  };
+
   /**
    * Current state of the TV. On/off represented as a boolean.
    */
