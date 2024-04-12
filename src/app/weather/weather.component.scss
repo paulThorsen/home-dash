@@ -6,6 +6,20 @@
   color: #48484a;
 }
 
+#time {
+  font-size: 3rem;
+  margin-bottom: 0.4rem;
+}
+
+#date {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+#image {
+  margin-top: -3rem;
+}
+
 #sunrise,
 #sunset {
   margin-right: 0.4rem;
@@ -44,7 +58,7 @@
   justify-content: space-around;
 
   .pop {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 0.6rem;
     margin-left: 0.4rem;
   }
@@ -56,6 +70,6 @@
 
   .label {
     color: #636365;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }

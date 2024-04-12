@@ -1,5 +1,8 @@
+<h1 id="time">{{ time$ | async | date : "shortTime" }}</h1>
+<h2 id="date">{{ time$ | async | date }}</h2>
+<hr class="divider" />
 <img
-  id="main"
+  id="image"
   [src]="'https://openweathermap.org/img/wn/' + (weather.weather()?.weather?.[0]?.id ?? 0  | weatherIcon) + 'd@4x.png'"
   alt="weather icon"
 />
