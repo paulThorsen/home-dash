@@ -15,7 +15,7 @@ export class TVService {
   private readonly alerts = inject(AlertService);
   private readonly apiBaseURI = 'http://localhost:3000/tv';
   /**
-   * Open the garage door.
+   * Turn on the TV.
    */
   turnOn = () => {
     const alert: AlertType = 'TV_ON_FAILED';
@@ -30,7 +30,7 @@ export class TVService {
   };
 
   /**
-   * Close the garage door.
+   * Turn off the TV.
    */
   turnOff = () => {
     const alert: AlertType = 'TV_OFF_FAILED';
@@ -46,7 +46,7 @@ export class TVService {
   /**
    * Current state of the TV. On/off represented as a boolean.
    */
-  state: Signal<boolean | undefined> = toSignal(
+  isTvOn: Signal<boolean | undefined> = toSignal(
     webSocket<TVState>('ws://localhost:3000/tv/state').pipe(
       catchError((e) => {
         console.error(e);
@@ -55,7 +55,7 @@ export class TVService {
         throw 'TV_WEBSOCKET_CONNECTION_FAILED';
       }),
       retry({ delay: 1000 }),
-      map((state) => state.state === 'PowerOn'),
+      map((state) => state.isTvOn),
       tap(() => this.alerts.removeAlert('TV_WEBSOCKET_CONNECTION_FAILED'))
     )
   );

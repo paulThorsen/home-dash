@@ -1,1 +1,1 @@
-export type TVState = { state: 'Ready' | 'PowerOn' };
+export type TVState = { isTvOn: boolean };
